@@ -1,7 +1,5 @@
 #plane{
 	background-color:#D8D8D8;
-	height:200px;
-	width:200px;
 }
 
 #answer_view{
@@ -9,8 +7,6 @@
 	top:0;
 	right:0;
 	background-color:#DFDFDF;
-	height:200px;
-	width:200px;
 }
 
 .block {

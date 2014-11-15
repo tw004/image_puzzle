@@ -22,6 +22,7 @@ $(function(){
 	//init framwork
 	var img = $('<img>');
 	img.attr('src', 'src/source.jpg');
+	$('#answer_view').append(img);
 	img.load(function() {
 		alert(this.width+'x'+ this.height);
 		updateBlockVariables(this.width,this.height);
