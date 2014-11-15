@@ -1,15 +1,27 @@
 body {
 	color: blue;
+	min-width: 1600px;
+}
+
+#container {
+	width: 100%;
 }
 
 #plane{
+	z-index: -1;
+	float: left;
 	background-color:#D8D8D8;
 }
 
+#end_animate {
+	width: 100px;;
+	float: left;
+	z-index: 100;
+}
+
 #answer_view{
-	position:absolute;
-	top:0;
-	right:0;
+	z-index: -1;
+	float: right;
 	background-color:#DFDFDF;
 }
 

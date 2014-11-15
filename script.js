@@ -18,6 +18,9 @@ $(function(){
 	function initImages(width, height) {
 		$('#plane').css('width',width);
 		$('#plane').css('height',height);
+		$('#answer_view').css('width', width);
+		$('#answer_view').css('height', height);
+		$('#container').css('height', height);
 		generateTable(blockWidth,blockHeight,width,height);
 	}
 
@@ -61,9 +64,12 @@ $(function(){
 		var left = x + offset.left, top = y + offset.top;
 		if (duration) { // animation
 			animate_counter++;
-			$block.animate({left: left, top: top}, duration, function() {
-				animate_counter--;
-			});
+			$block.animate({left: left, top: top}, {
+				duration: duration,
+				always: function() {
+					animate_counter--;
+				}
+				});
 		} else { // no animation
 			$block.css({left: left, top: top});
 		}
@@ -173,7 +179,14 @@ $(function(){
 		return moveEmptyBlock(0, 1, duration);
 	}
 
+	function isArrowKeys(keyCode) {
+		return [38, 40, 37, 39].indexOf(keyCode) != -1;
+	}
+
 	function onKeyDown(event) {
+		// prevent scrolling when an arrow key is pressed
+		if (isArrowKeys(event.which))
+			event.preventDefault();
 		if(animate_counter>=2) return;
 		if(complete) return;
 		var moved = false;
@@ -196,6 +209,13 @@ $(function(){
 				onComplete();
 			}
 		}
-		event.preventDefault(); // prevent scrolling
 	};
+
+	var test = $('<img>');
+	test.attr('src', 'src/end_chitoge.png');
+	test.hide();
+	$('#end_animate').append(test);
+	test.load(function(){
+		$(this).slideDown();
+	});
 });
