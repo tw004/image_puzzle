@@ -8,6 +8,7 @@ $(function(){
 	var numBlockRow = 0;
 	var numBlockCol = 0;
 	var index_table = {};
+	var randomIter = 100;
 
 	//init method
 	function initImages(width, height) {
@@ -23,9 +24,30 @@ $(function(){
 		alert(this.width+'x'+ this.height);
 		updateBlockVariables(this.width,this.height);
 		initImages(this.width, this.height);
+		scramblePlane();
 	});
 
 	//function announce
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function scramblePlane(){
+		for(var i=0;i<randomIter;i++){
+			var movement = getRandomInt(0,3);	
+			switch(movement){
+				case 0://up
+					move_up();break;
+				case 1: //down
+					move_down();break;
+				case 2: //right
+					move_right();break;
+				case 3: //left
+					move_left();break;
+			}
+		}
+	}
+
 	function setBlockPosition($block, row , col) {
 		var x = col * blockWidth, y = row * blockHeight;
 		var offset = $('#plane').offset();
