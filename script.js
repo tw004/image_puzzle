@@ -11,6 +11,7 @@ $(function(){
 	var randomIter = 100;
 	var animate_duration = 150;
 	var animate_counter = 0;
+	var complete = false;
 
 	//init method
 	function initImages(width, height) {
@@ -24,7 +25,6 @@ $(function(){
 	img.attr('src', 'src/source.jpg');
 	$('#answer_view').append(img);
 	img.load(function() {
-		alert(this.width+'x'+ this.height);
 		updateBlockVariables(this.width,this.height);
 		initImages(this.width, this.height);
 		scramblePlane();
@@ -129,6 +129,11 @@ $(function(){
 		return true;
 	}
 
+	function onComplete(){
+		var index = getEmptyBlockPosition();
+		index_table[index].finish().show();
+	}
+
 	//keyboard control
 	function moveEmptyBlock(drow, dcol, duration) {
 		var index = getEmptyBlockPosition();
@@ -160,6 +165,7 @@ $(function(){
 
 	$('body').keydown(function(event) {
 		if(animate_counter>=2) return;
+		if(complete) return;
 		switch (event.which) {
 			case 38: //Up arrow
 				move_up(animate_duration); break;
@@ -169,6 +175,10 @@ $(function(){
 				move_left(animate_duration); break;
 			case 39: //Right arrow
 				move_right(animate_duration); break;
+		}
+		if(isComplete()){
+			complete = true;
+			onComplete();
 		}
 	});
 });
