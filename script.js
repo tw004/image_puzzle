@@ -121,6 +121,14 @@ $(function(){
 		return row * numBlockCol + col;
 	}
 
+	function isComplete(){
+		for(var i=0;i<numBlockCol*numBlockRow;i++){
+			if(i!=index_table[i].data('index'))
+				return false;
+		}
+		return true;
+	}
+
 	//keyboard control
 	function moveEmptyBlock(drow, dcol, duration) {
 		var index = getEmptyBlockPosition();
