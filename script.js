@@ -123,7 +123,6 @@ $(function(){
 
 	//keyboard control
 	function moveEmptyBlock(drow, dcol, duration) {
-		if(animate_counter>=2) return;
 		var index = getEmptyBlockPosition();
 		var row = Math.floor(index / numBlockCol);
 		var col = index % numBlockCol;
@@ -152,6 +151,7 @@ $(function(){
 	}
 
 	$('body').keydown(function(event) {
+		if(animate_counter>=2) return;
 		switch (event.which) {
 			case 38: //Up arrow
 				move_up(animate_duration); break;
