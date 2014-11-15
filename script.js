@@ -26,7 +26,7 @@ $(function(){
 	});
 
 	//function announce
-	function setBlockPosition($block, col, row) {
+	function setBlockPosition($block, row , col) {
 		var x = col * blockWidth, y = row * blockHeight;
 		var offset = $('#plane').offset();
 		$block.css({left: x + offset.left, top: y + offset.top});
@@ -44,7 +44,7 @@ $(function(){
 						"background-image":"url('src/source.jpg')",
 						"background-position":(-x)+"px "+(-y)+"px" 
 				});
-				setBlockPosition($block, col, row);
+				setBlockPosition($block,row,col);
 				$('#plane').append($block);
 				var index = row * numBlockCol + col;
 				$block.data('index',index);
@@ -61,4 +61,71 @@ $(function(){
 		numBlockRow= Math.floor(height/blockHeight);
 		blockHeight = Math.floor(height/numBlockRow);
 	}
+
+	function getEmptyBlockPosition(){
+		var total_length = numBlockRow * numBlockCol;
+		for(var index=0;index<total_length;index++){
+			if(index_table[index].data('index')==(total_length-1)){
+				return index;
+			}
+		}
+		alert("getEmptyBlockPosition error");
+	}
+
+	function swapBlock(row_A , col_A , row_B , col_B){
+		var in_A = getIndex(row_A , col_A);
+		var in_B = getIndex(row_B , col_B);
+		var $block1 = index_table[in_A];
+		var $block2 = index_table[in_B];
+		var tmp = index_table[in_A];
+		index_table[in_A] = index_table[in_B];
+		index_table[in_B]=tmp;
+		setBlockPosition($block1 , row_B , col_B);
+		setBlockPosition($block2 , row_A , col_A);
+	}
+
+	function getIndex(row , col){
+		return row * numBlockCol + col;
+	}
+
+	//keyboard control
+	function moveEmptyBlock(drow, dcol) {
+		var index = getEmptyBlockPosition();
+		var row = Math.floor(index / numBlockCol);
+		var col = index % numBlockCol;
+		var newRow = row + drow;
+		var newCol = col + dcol;
+		if (newRow<numBlockRow && newRow>=0 && newCol<numBlockCol && newCol>=0) {
+			//var newIndex = newRow * numBlockCol + newCol;
+			swapBlock(row , col , newRow , newCol);
+		}
+	}
+
+	function move_right(){
+		moveEmptyBlock(0, -1);
+	}
+
+	function move_up(){
+		moveEmptyBlock(1, 0);
+	}
+
+	function move_down(){
+		moveEmptyBlock(-1, 0);
+	}
+
+	function move_left(){
+		moveEmptyBlock(0, 1);
+	}
+	$('body').keydown(function(event) {
+		switch (event.which) {
+			case 38: //Up arrow
+				move_up(); break;
+			case 40: //Down arrow
+				move_down(); break;
+			case 37: //Left arrow
+				move_left(); break;
+			case 39: //Right arrow
+				move_right(); break;
+		}
+	});
 });
