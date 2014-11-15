@@ -3,8 +3,8 @@ $(function(){
 	$('body').css("background-color","#F2F5A9");
 
 	//init parameter
-	var blockWidth = 100;
-	var blockHeight = 100;
+	var blockWidth = 150;
+	var blockHeight = 150;
 	var numBlockRow = 0;
 	var numBlockCol = 0;
 	var index_table = {};
