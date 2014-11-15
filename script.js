@@ -12,6 +12,7 @@ $(function(){
 	var animate_duration = 150;
 	var animate_counter = 0;
 	var complete = false;
+	var step = 0;
 
 	//init method
 	function initImages(width, height) {
@@ -25,9 +26,12 @@ $(function(){
 	img.attr('src', 'src/source.jpg');
 	$('#answer_view').append(img);
 	img.load(function() {
+		// resources loaded, now initialize the board
 		updateBlockVariables(this.width,this.height);
 		initImages(this.width, this.height);
 		scramblePlane();
+		$(document).keydown(onKeyDown);
+		updateView();
 	});
 
 	//function announce
@@ -134,6 +138,10 @@ $(function(){
 		index_table[index].finish().show();
 	}
 
+	function updateView() {
+		$('#count').text(step);
+	}
+
 	//keyboard control
 	function moveEmptyBlock(drow, dcol, duration) {
 		var index = getEmptyBlockPosition();
@@ -144,41 +152,50 @@ $(function(){
 		if (newRow<numBlockRow && newRow>=0 && newCol<numBlockCol && newCol>=0) {
 			//var newIndex = newRow * numBlockCol + newCol;
 			swapBlock(row , col , newRow , newCol, duration);
+			return true;
 		}
+		return false;
 	}
 
 	function move_right(duration){
-		moveEmptyBlock(0, -1, duration);
+		return moveEmptyBlock(0, -1, duration);
 	}
 
 	function move_up(duration){
-		moveEmptyBlock(1, 0, duration);
+		return moveEmptyBlock(1, 0, duration);
 	}
 
 	function move_down(duration){
-		moveEmptyBlock(-1, 0, duration);
+		return moveEmptyBlock(-1, 0, duration);
 	}
 
 	function move_left(duration){
-		moveEmptyBlock(0, 1, duration);
+		return moveEmptyBlock(0, 1, duration);
 	}
 
-	$('body').keydown(function(event) {
+	function onKeyDown(event) {
 		if(animate_counter>=2) return;
 		if(complete) return;
+		var moved = false;
 		switch (event.which) {
 			case 38: //Up arrow
-				move_up(animate_duration); break;
+				moved = move_up(animate_duration); break;
 			case 40: //Down arrow
-				move_down(animate_duration); break;
+				moved = move_down(animate_duration); break;
 			case 37: //Left arrow
-				move_left(animate_duration); break;
+				moved = move_left(animate_duration); break;
 			case 39: //Right arrow
-				move_right(animate_duration); break;
+				moved = move_right(animate_duration); break;
+			default: return;
 		}
-		if(isComplete()){
-			complete = true;
-			onComplete();
+		if (moved) {
+			step++;
+			updateView();
+			if(isComplete()){
+				complete = true;
+				onComplete();
+			}
 		}
-	});
+		event.preventDefault(); // prevent scrolling
+	};
 });

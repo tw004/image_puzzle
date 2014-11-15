@@ -1,3 +1,7 @@
+body {
+	color: blue;
+}
+
 #plane{
 	background-color:#D8D8D8;
 }
@@ -12,3 +16,4 @@
 .block {
 	position: absolute;
 }
+
