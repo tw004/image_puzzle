@@ -34,6 +34,7 @@ $(function(){
 		scramblePlane();
 		$(document).keydown(onKeyDown);
 		updateView();
+		bgmPlaying();
 	});
 
 	//function announce
@@ -230,5 +231,12 @@ $(function(){
 	function endingText(){
 		$('#end_text').attr('src','src/congrats.png');
 		$('#end_text').slideDown();
+	}
+
+	function bgmPlaying(){
+		var myBGM = new buzz.sound("src/sound/chitoge_bgm",{
+			formats:["ogg","mp3"]});	
+		myBGM.setVolume(50);
+		myBGM.play().loop();
 	}
 });
