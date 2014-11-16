@@ -219,7 +219,11 @@ $(function(){
 		$('#end_animate').append(endImage);
 		endImage.load(function(){
 			$(this).show();
-			$(this).animate({'margin-top': '-800px'}, 1000);
+			$('#end_animate').animate({'margin-top': '-=520px'}, 800,function(){
+				$('#end_animate').animate({'margin-top':'+=20px'},200,function(){
+					//$(this).animate({'height':'-=10px'},200);
+				});
+			});
 		});
 	}
 });
