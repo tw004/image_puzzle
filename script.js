@@ -1,6 +1,5 @@
 $(function(){
 	//init background
-	$('body').css("background-color","#F2F5A9");
 
 	//init parameter
 	var blockWidth = 150;
