@@ -185,7 +185,7 @@ $(function(){
 
 	function onKeyDown(event) {
 		// prevent scrolling when an arrow key is pressed
-		if (isArrowKeys(event.which))
+		if (isArrowKeys(event.which)&&complete==0)
 			event.preventDefault();
 		if(animate_counter>=2) return;
 		if(complete) return;
@@ -207,15 +207,19 @@ $(function(){
 			if(isComplete()){
 				complete = true;
 				onComplete();
+				endingAnimation();
 			}
 		}
 	};
 
-	var test = $('<img>');
-	test.attr('src', 'src/end_chitoge.png');
-	test.hide();
-	$('#end_animate').append(test);
-	test.load(function(){
-		$(this).slideDown();
-	});
+	function endingAnimation(){
+		var endImage = $('<img>');
+		endImage.attr('src', 'src/end_chitoge.png');
+		endImage.hide();
+		$('#end_animate').append(endImage);
+		endImage.load(function(){
+			$(this).show();
+			$(this).animate({'margin-top': '-800px'}, 1000);
+		});
+	}
 });

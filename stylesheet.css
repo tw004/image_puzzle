@@ -15,8 +15,10 @@ body {
 
 #end_animate {
 	width: 100px;;
-	float: left;
 	z-index: 100;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0px;
 }
 
 #answer_view{
