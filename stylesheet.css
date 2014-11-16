@@ -1,14 +1,17 @@
 body {
 	color: blue;
 	min-width: 1600px;
-	background-color:#FFF;
-	margin:0px;
+	background-image:url("src/castle_body.png");
+	margin: 0px;
 }
 
 #container {
 	width: 100%;
 	overflow:hidden;
 	background-color:#F2F5A9;
+	background-image:url("src/bg-contentsbox.jpg");
+	padding-bottom:20px;
+	padding-top:40px;
 }
 
 #plane{
@@ -16,6 +19,7 @@ body {
 	float: left;
 	background-color:#D8D8D8;
 	margin-left:20px;
+	box-shadow: 0px 0px 10px #000;
 }
 
 #end_animate {
@@ -31,6 +35,7 @@ body {
 	float: right;
 	background-color:#DFDFDF;
 	margin-right:20px;
+	box-shadow: 0px 0px 10px #000;
 }
 
 #step{
@@ -49,10 +54,12 @@ body {
 	width: 100%;
 	height: 60px;
 	z-index: 20;
-background: -webkit-linear-gradient(transparent, white, transparent);
+	background-image:url("src/castle_bound.png");
+	background-repeat:repeat-x;
+/*background: -webkit-linear-gradient(transparent, white, transparent);
 background: -o-linear-gradient(transparent, white, transparent);
 background: -moz-linear-gradient(transparent, white, transparent);
-background: linear-gradient(transparent, white, transparent);
+background: linear-gradient(transparent, white, transparent);*/
 }
 
 #end_text{
@@ -66,6 +73,9 @@ background: linear-gradient(transparent, white, transparent);
 	background-image:url('src/bg-header_wood.jpg');
 	width:100%;
 	height:30px;
+	top:0px;
+	position:absolute;
+	z-index:60;
 }
 
 .wall{
@@ -76,7 +86,6 @@ background: linear-gradient(transparent, white, transparent);
 	position:absolute;
 	height:100%;
 	width:20px;
-	top:30px;
 	left:0;
 	z-index:50;
 }
@@ -86,6 +95,5 @@ background: linear-gradient(transparent, white, transparent);
 	height:100%;
 	width:20px;
 	right:0px;
-	top:30px;
 	z-index:50;
 }
