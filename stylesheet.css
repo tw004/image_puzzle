@@ -2,6 +2,7 @@ body {
 	color: blue;
 	min-width: 1600px;
 	background-color:#FFF;
+	margin:0px;
 }
 
 #container {
@@ -17,7 +18,6 @@ body {
 }
 
 #end_animate {
-	width: 100px;;
 	z-index: 10;
 	margin-left:auto;
 	margin-right:auto;
@@ -31,8 +31,9 @@ body {
 	background-color:#DFDFDF;
 }
 
-p{
+#step{
 	position:absolute;
+	margin-left:10px;
 }
 
 .block {
@@ -49,4 +50,11 @@ background: -webkit-linear-gradient(transparent, white, transparent);
 background: -o-linear-gradient(transparent, white, transparent);
 background: -moz-linear-gradient(transparent, white, transparent);
 background: linear-gradient(transparent, white, transparent);
+}
+
+#end_text{
+	float:right;
+	width:200px;
+	height:100px;
+	margin-left:-100px;
 }

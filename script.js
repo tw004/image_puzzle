@@ -218,11 +218,17 @@ $(function(){
 		$('#end_animate').append(endImage);
 		endImage.load(function(){
 			$(this).show();
+			$('#end_text').hide();
 			$('#end_animate').animate({'margin-top': '-=520px'}, 800,function(){
 				$('#end_animate').animate({'margin-top':'+=20px'},200,function(){
-					//$(this).animate({'height':'-=10px'},200);
+				endingText();
 				});
 			});
 		});
+	}
+
+	function endingText(){
+		$('#end_text').attr('src','src/congrats.png');
+		$('#end_text').slideDown();
 	}
 });
