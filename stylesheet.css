@@ -36,6 +36,7 @@ body {
 #step{
 	position:absolute;
 	margin-left:40px;
+	font-size:200%;
 }
 
 .block {
