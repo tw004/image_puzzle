@@ -127,3 +127,37 @@ background: linear-gradient(transparent, white, transparent);*/
 	transform:scale(1.1,1.1);
 	margin-top:0px;
 }
+
+#end_message{
+	background-image:url("src/bg-header_wood.jpg");
+	position:absolute;
+	top:30px;
+	left:650px;
+	height:100px;
+	width:20%;
+}
+
+.yesno{
+	color:#FFF;
+	font-size:30px;
+	border-radius:20px;
+	padding:0px 8px 0px 8px;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+#yes{
+	background-color:#088A08;
+	margin-left:20px;
+}
+
+#yes:hover{
+	background-color:#0B610B;
+}
+
+#no{
+	background-color:#B40404;
+}
+
+#no:hover{
+	background-color:#8A0808;
+}

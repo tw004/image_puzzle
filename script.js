@@ -26,7 +26,13 @@ $(function(){
 	//init framwork
 	var img = $('<img>');
 	img.attr('src', 'src/source.jpg');
+	$('#end_message').hide();
 	$('#answer_view').append(img);
+	//end image load here
+	var endImage = $('<img>');
+	endImage.attr('src', 'src/end_chitoge.png');
+	endImage.hide();
+	$('#end_animate').append(endImage);
 	img.load(function() {
 		// resources loaded, now initialize the board
 		updateBlockVariables(this.width,this.height);
@@ -213,24 +219,21 @@ $(function(){
 	};
 
 	function endingAnimation(){
-		var endImage = $('<img>');
-		endImage.attr('src', 'src/end_chitoge.png');
-		endImage.hide();
-		$('#end_animate').append(endImage);
-		endImage.load(function(){
-			$(this).show();
+			$(endImage).show();
 			$('#end_text').hide();
 			$('#end_animate').animate({'margin-top': '-=520px'}, 800,function(){
 				$('#end_animate').animate({'margin-top':'+=20px'},200,function(){
 				endingText();
 				});
 			});
-		});
 	}
 
 	function endingText(){
 		$('#end_text').attr('src','src/congrats.png');
 		$('#end_text').slideDown();
+		setTimeout(function(){
+				endMessage();
+		},800);
 	}
 
 	function bgmPlaying(){
@@ -256,6 +259,23 @@ $(function(){
 			}
 				});
 	}
+
+	function endMessage(){
+		$('#end_message').slideDown();
+		}
+	//yes no button
+	$('#yes').click(function(){
+			$('#end_message').hide();
+			index_table[numBlockCol*numBlockRow -1].hide();
+			step=0;
+			updateView();
+			scramblePlane();
+			complete=false;
+			$('#end_animate').animate({'margin-top': '600px'}, 500);
+			});
+	$('#no').click(function(){
+			$('#end_message').slideUp();
+			});
 
 
 
