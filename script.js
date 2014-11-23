@@ -227,7 +227,7 @@ $(function(){
 	function endingAnimation(){
 			$(endImage).show();
 			$('#end_text').hide();
-			$('#end_animate').animate({'margin-top': '-=520px'}, 800,function(){
+			$('#end_animate').animate({'margin-top': '-=500px'}, 800,function(){
 				$('#end_animate').animate({'margin-top':'+=20px'},200,function(){
 				endingText();
 				});
