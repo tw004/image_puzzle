@@ -131,10 +131,15 @@ background: linear-gradient(transparent, white, transparent);*/
 #end_message{
 	background-image:url("src/bg-header_wood.jpg");
 	position:absolute;
-	top:30px;
+	border-radius:10px;
+	top:20px;
 	left:650px;
-	height:100px;
+	height:110px;
 	width:20%;
+}
+
+#again{
+	margin-top:10px;
 }
 
 .yesno{
