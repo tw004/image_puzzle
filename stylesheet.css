@@ -109,3 +109,10 @@ background: linear-gradient(transparent, white, transparent);*/
 	position:relative;
 	font-size:200%;
 }
+
+#booster{
+	height:50px;
+	width:50px;
+	position:absolute;
+	right:500px;
+}

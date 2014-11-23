@@ -236,7 +236,27 @@ $(function(){
 	function bgmPlaying(){
 		var myBGM = new buzz.sound("src/sound/chitoge_bgm",{
 			formats:["ogg","mp3"]});	
-		myBGM.setVolume(50);
+		var volume = 50;
+		myBGM.setVolume(volume);
 		myBGM.play().loop();
+		//volume button
+		$('#booster').click(function(){		
+			if(volume==50){
+				volume=30;
+				myBGM.setVolume(volume);
+				$('#booster').attr('src','src/volume_mid.png');
+			}else if(volume==30){
+				volume=0;
+				myBGM.setVolume(volume);
+				$('#booster').attr('src','src/volume_off.png');
+			}else{
+				volume=50;
+				myBGM.setVolume(volume);
+				$('#booster').attr('src','src/volume_on.png');
+			}
+				});
 	}
+
+
+
 });
