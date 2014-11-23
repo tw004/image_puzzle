@@ -43,6 +43,10 @@ $(function(){
 		bgmPlaying();
 	});
 
+	//setSlideSound
+	var slide = new buzz.sound("src/sound/slide",{formats:["ogg"]});	
+	slide.setVolume(5);
+
 	//function announce
 	function getRandomInt(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -210,6 +214,8 @@ $(function(){
 		if (moved) {
 			step++;
 			updateView();
+			slideSoundStop();
+			slideSoundStart();
 			if(isComplete()){
 				complete = true;
 				onComplete();
@@ -277,6 +283,12 @@ $(function(){
 			$('#end_message').slideUp();
 			});
 
+	function slideSoundStart(){
+		slide.play();
+	}
 
+	function slideSoundStop(){
+		slide.stop();
+	}
 
 });
