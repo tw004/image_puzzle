@@ -166,3 +166,141 @@ background: linear-gradient(transparent, white, transparent);*/
 #no:hover{
 	background-color:#8A0808;
 }
+
+.orb{
+	position:absolute;
+	background-color:#FFF;
+	z-index:50;
+	border-radius:50px;
+	box-shadow:0px 0px 10px #FFF;
+	opacity:0;
+}
+
+#orb1{
+	-webkit-animation:trace1 5s infinite;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0.7s;
+	 -webkit-animation-duration: 10s;
+	-moz-animation:trace1 5s infinite;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0.7s;
+	-moz-animation-duration: 10s;
+}
+
+#orb2{
+	-webkit-animation:trace2 5s infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0.7s;
+	-webkit-animation-duration: 10s;
+	-moz-animation:trace2 5s infinite;
+	-moz-animation-timing-function: linear;
+	-moz-animation-delay: 0.7s;
+	-moz-animation-duration: 10s;
+}
+
+#orb3{
+	-webkit-animation:trace3 6s infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-duration: 8s;
+	-moz-animation:trace3 6s infinite;
+	-moz-animation-timing-function: linear;
+	-moz-animation-delay: 1s;
+	-moz-animation-duration: 8s;
+}
+
+#orb4{
+	-webkit-animation:trace4 6s infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0.5s;
+	-webkit-animation-duration: 7s;
+	-moz-animation:trace4 6s infinite;
+	-moz-animation-timing-function: linear;
+	-moz-animation-delay: 0.5s;
+	-moz-animation-duration: 7s;
+}
+
+
+#orb5{
+	-webkit-animation:trace5 5s infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-duration: 10s;
+	-moz-animation:trace5 5s infinite;
+	-moz-animation-timing-function: linear;
+	-moz-animation-delay: 1s;
+	-moz-animation-duration: 10s;
+}
+
+/*chrome webkit*/
+@-webkit-keyframes trace1{
+	0%{width:0px;height:0px;left:0%;bottom:20%;opacity:0.4;}
+	25%{width:30px;height:30px;opacity:0.3;}
+	75%{width:60px;height:60px;opacity:0.2;}
+	100%{width:30px;height:30px;left:90%;bottom:90%;opacity:0.5;}
+}
+
+@-webkit-keyframes trace2{
+	0%{width:30px;height:30px;left:50%;top:0%;opacity:0.5;}
+	25%{width:80px;height:80px;left:67%;top:20%;opacity:0.3;}
+	75%{width:30px;height:30px;left:73%;top:40%;opacity:0.5;}
+	100%{left:73%;top:50%;width:10px;height:10px;opacity:0.1;}
+}
+
+@-webkit-keyframes trace3{
+	0%{width:15px;height:15px;left:5%;top:25%;opacity:0.5;}
+	25%{width:20px;height:20px;left:30%;top:23%;opacity:0.3;}
+	75%{width:20px;height:20px;left:73%;top:25%;opacity:0.5;}
+	100%{left:75%;top:25%;width:10px;height:10px;opacity:0.1;}
+}
+
+@-webkit-keyframes trace4{
+	0%{width:10px;height:10px;left:5%;top:33%;opacity:0.5;}
+	25%{width:20px;height:20px;left:15%;top:23%;opacity:0.3;}
+	75%{width:20px;height:20px;left:35%;top:15%;opacity:0.5;}
+	100%{width:20px;height:20px;left:65%;top:5%;opacity:0.5;}
+}
+
+@-webkit-keyframes trace5{
+	0%{width:50px;height:50px;left:5%;top:5%;opacity:0.5;}
+	25%{width:20px;height:20px;left:15%;top:13%;opacity:0.3;}
+	75%{width:50px;height:50px;left:35%;top:25%;opacity:0.5;}
+	100%{width:30px;height:30px;left:50%;top:33%;opacity:0.5;}
+}
+
+
+/*moz webkit*/
+@-moz-keyframes trace1{
+	0%{width:0px;height:0px;left:0%;bottom:20%;opacity:0.4;}
+	25%{width:30px;height:30px;opacity:0.3;}
+	75%{width:60px;height:60px;opacity:0.2;}
+	100%{width:30px;height:30px;left:90%;bottom:90%;opacity:0.5;}
+}
+
+@-moz-keyframes trace2{
+	0%{width:30px;height:30px;left:50%;top:0%;opacity:0.5;}
+	25%{width:80px;height:80px;left:67%;top:20%;opacity:0.3;}
+	75%{width:30px;height:30px;left:73%;top:40%;opacity:0.5;}
+	100%{left:73%;top:50%;width:10px;height:10px;opacity:0.1;}
+}
+
+@-moz-keyframes trace3{
+	0%{width:15px;height:15px;left:5%;top:25%;opacity:0.5;}
+	25%{width:20px;height:20px;left:30%;top:23%;opacity:0.3;}
+	75%{width:20px;height:20px;left:73%;top:25%;opacity:0.5;}
+	100%{left:75%;top:25%;width:10px;height:10px;opacity:0.1;}
+}
+
+@-moz-keyframes trace4{
+	0%{width:10px;height:10px;left:5%;top:33%;opacity:0.5;}
+	25%{width:20px;height:20px;left:15%;top:23%;opacity:0.3;}
+	75%{width:20px;height:20px;left:35%;top:15%;opacity:0.5;}
+	100%{width:20px;height:20px;left:65%;top:5%;opacity:0.5;}
+}
+
+@-moz-keyframes trace5{
+	0%{width:50px;height:50px;left:5%;top:5%;opacity:0.5;}
+	25%{width:20px;height:20px;left:15%;top:13%;opacity:0.3;}
+	75%{width:50px;height:50px;left:35%;top:25%;opacity:0.5;}
+	100%{width:30px;height:30px;left:50%;top:33%;opacity:0.5;}
+}
