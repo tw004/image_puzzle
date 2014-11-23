@@ -1,5 +1,5 @@
 body {
-	color: blue;
+	color: black;
 	min-width: 1600px;
 	min-height: 100%;
 	width: 100%;
@@ -47,7 +47,8 @@ body {
 
 #step{
 	margin-left:40px;
-	font-size:200%;
+	float:left;
+	margin-right:15px;
 }
 
 .block {
@@ -102,4 +103,9 @@ background: linear-gradient(transparent, white, transparent);*/
 	width:20px;
 	right:0px;
 	z-index:50;
+}
+
+#count{
+	position:relative;
+	font-size:200%;
 }
