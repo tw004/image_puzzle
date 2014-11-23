@@ -52,6 +52,10 @@ $(function(){
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
+	//setEndingSound
+	var endSound = new buzz.sound("src/sound/chitoge_saigodesita",{formats:["ogg"]});
+	endSound.setVolume(70);
+
 	function scramblePlane(){
 		for(var i=0;i<randomIter;i++){
 			var movement = getRandomInt(0,3);	
@@ -228,6 +232,7 @@ $(function(){
 			$(endImage).show();
 			$('#end_text').hide();
 			$('#end_animate').animate({'margin-top': '-=500px'}, 800,function(){
+				endSoundStart();
 				$('#end_animate').animate({'margin-top':'+=20px'},200,function(){
 				endingText();
 				});
@@ -289,6 +294,10 @@ $(function(){
 
 	function slideSoundStop(){
 		slide.stop();
+	}
+
+	function endSoundStart(){
+		endSound.play();
 	}
 
 });
