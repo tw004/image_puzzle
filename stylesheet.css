@@ -111,8 +111,19 @@ background: linear-gradient(transparent, white, transparent);*/
 }
 
 #booster{
-	height:50px;
-	width:50px;
+	height:150px;
+	width:150px;
 	position:absolute;
 	right:500px;
+	margin-top:-8px;
+}
+
+#volume{
+	height:180px;
+}
+
+
+#booster:hover{
+	transform:scale(1.1,1.1);
+	margin-top:0px;
 }
