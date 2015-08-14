@@ -30,7 +30,7 @@ $(function(){
 	$('#answer_view').append(img);
 	//end image load here
 	var endImage = $('<img>');
-	endImage.attr('src', 'src/end_chitoge.png');
+	endImage.attr('src', 'src/end_img.png');
 	endImage.hide();
 	$('#end_animate').append(endImage);
 	img.load(function() {
@@ -250,7 +250,8 @@ $(function(){
 	function bgmPlaying(){
 		var myBGM = new buzz.sound("src/sound/chitoge_bgm",{
 			formats:["ogg","mp3"]});	
-		var volume = 50;
+		var volume = 0;
+		$('#booster').attr('src','src/volume_off.png');
 		myBGM.setVolume(volume);
 		myBGM.play().loop();
 		//volume button
@@ -297,7 +298,7 @@ $(function(){
 	}
 
 	function endSoundStart(){
-		endSound.play();
+		//endSound.play();
 	}
 
 });
